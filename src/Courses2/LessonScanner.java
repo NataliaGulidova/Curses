@@ -15,6 +15,6 @@ public class LessonScanner {
         String b = sc.nextLine();
         System.out.println("Введите дату рождения:");
         Double c = sc.nextDouble();
-        System.out.println("hello " + a + b);
+        System.out.println("hello " + a);
     }
 }
