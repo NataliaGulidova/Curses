@@ -7,7 +7,7 @@ public static void main(String args[]){
     double S;
     double P;
     var1=10;
-    var2=14;
+    var2=15;
     var3=15;
     P=(var1+var2+var3)/2;
     S=Math.sqrt(P*(P-var1)*(P-var2)*(P-var3));
