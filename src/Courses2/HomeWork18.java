@@ -11,11 +11,11 @@ public class HomeWork18 {
         short[] array= {4, 5, -23, -1234, 456, 7, -44, -1, 45, 23, 23, 1, 2};
         System.out.println(Arrays.toString(array));
 int modyl;
-int minZnah;
 Arrays.sort(array);
         System.out.println(Arrays.toString(array));
         for (int i = 0; i < array.length ; i++) {
             modyl= Math.abs(array[i]);
+            Arrays.sort(modyl);
             System.out.println(Math.abs(array[i]));
 
         }
