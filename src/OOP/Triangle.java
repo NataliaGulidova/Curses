@@ -7,20 +7,15 @@ package OOP;
 // треугольника. Реализуйте метод, который будет возвращать площадь этого
 // треугольника. Создайте несколько объектов этого класса и протестируйте их.
 public class Triangle {
-   private double sideA = 10, sideB=12, sideC=13;
+   private double sideA;
+   private double sideB;
+   private double sideC;
    private double perimeter;
    private double area;
     public Triangle(){
 
     }
-public void  Perimetr(){
-         perimeter =(sideA+sideB+sideC)/2;
-    System.out.println("Perimetr: " + perimeter);
-}
-public void Area(){
-    area = Math.sqrt(perimeter*(perimeter-sideA)*(perimeter-sideB)*(perimeter-sideC));
-    System.out.println("Area:" + area);
-}
+
     @Override
     public String toString() {
         return "Triangle{" +
@@ -38,6 +33,24 @@ public void Area(){
         this.sideC = sideC;
         this.perimeter = perimeter;
         this.area = area;
+    }
+    public void  perimetr(){
+        perimeter =(sideA+sideB+sideC)/2;
+        System.out.println("Perimetr: " + perimeter);
+
+    }
+
+    public void area(){
+        area = Math.sqrt(perimeter*(perimeter-sideA)*(perimeter-sideB)*(perimeter-sideC));
+        System.out.println("Area:" + area);
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public double getArea() {
+        return area;
     }
 
     public double getSideA() {
@@ -64,21 +77,6 @@ public void Area(){
         this.sideC = sideC;
     }
 
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    public void setPerimeter(double perimeter) {
-        this.perimeter = perimeter;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public void setArea(double area) {
-        this.area = area;
-    }
 
     public void  print(){
     System.out.println("SideA:" + sideA);

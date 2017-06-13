@@ -6,11 +6,11 @@ package OOP;
 public class MainTriangle {
     public static void main(String[] args) {
         Triangle Triangle1 = new Triangle();
-        Triangle1.getSideA();
-        Triangle1.getSideB();
-        Triangle1.getSideC();
-        Triangle1.Perimetr();
-        Triangle1.Area();
+        Triangle1.setSideA(14);
+        Triangle1.setSideB(15);
+        Triangle1.setSideC(18);
+        Triangle1.perimetr();
+        Triangle1.area();
 
         Triangle1.print();
     }
