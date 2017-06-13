@@ -27,7 +27,7 @@ public class Triangle {
                 '}';
     }
 
-    public Triangle(double sideA, double sideB, double sideC, double perimeter, double area) {
+    public Triangle(double sideA, double sideB, double sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
@@ -42,7 +42,7 @@ public class Triangle {
 
     public void area(){
         area = Math.sqrt(perimeter*(perimeter-sideA)*(perimeter-sideB)*(perimeter-sideC));
-        System.out.println("Area:" + area);
+        System.out.println("Area:" + Math.rint(1000.0 * area) / 1000.0);
     }
 
     public double getPerimeter() {

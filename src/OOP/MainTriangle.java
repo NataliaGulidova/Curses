@@ -13,5 +13,10 @@ public class MainTriangle {
         Triangle1.area();
 
         Triangle1.print();
+
+        Triangle Triangle2 = new Triangle(25, 41, 46);
+        Triangle2.perimetr();
+        Triangle2.area();
+        Triangle2.print();
     }
 }
