@@ -1,9 +1,9 @@
-package OOP.Triangle;
+package OOP;
 
 /**
- * Created by Admin on 12.06.2017.
+ * Created by Admin on 13.06.2017.
  */
-public class MainTriangle {
+public class TriangleMain {
     public static void main(String[] args) {
         Triangle Triangle1 = new Triangle();
         Triangle1.setSideA(14);
@@ -20,3 +20,4 @@ public class MainTriangle {
         Triangle2.print();
     }
 }
+
