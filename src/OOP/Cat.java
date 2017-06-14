@@ -4,11 +4,11 @@ package OOP;
  * Created by Admin on 13.06.2017.
  */
 public class Cat {
-        String color;
-        String sex;
-        String name;
-        double weight;
-        int year;
+        private  String color;
+        private String sex;
+        private String name;
+        private double weight;
+        private int year;
 
         public Cat(String color, String sex, String name, double weight, int year) {
             this.year = year;
