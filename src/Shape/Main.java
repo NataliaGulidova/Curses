@@ -23,8 +23,8 @@ public class Main {
 
         Shape rectangle = new Rectangle(new Point(0,4), new Point(4,0), new Point(0,4), new Point(4,0));
         System.out.println(rectangle);
-        System.out.println("square perimetr:" + rectangle.getPerimetr());
-        System.out.println("square area:" + rectangle.getArea());
+        System.out.println("rectangle perimetr:" + rectangle.getPerimetr());
+        System.out.println("rectangle area:" + rectangle.getArea());
         board.inShape(rectangle, 3);
 
         System.out.println();
