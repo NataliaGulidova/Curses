@@ -36,8 +36,9 @@ public class Point {
                 '}';
     }
 
-    public double getDist(Point b) {
-        return Math.sqrt((this.x - b.getX()) * (this.x - b.getX())
-                + (this.y - b.getY()) * (this.y - b.getY()));
+    public static double getDist(Point a, Point b){
+        return Math.sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
     }
+
+
 }

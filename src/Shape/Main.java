@@ -5,23 +5,35 @@ package Shape;
  */
 public class Main {
     public static void main(String[] args) {
-        Triangl triangl = new Triangl(new Point(2,3), new Point(8,6), new Point(7,9));
-        Circle carcle = new Circle(new Point(9,7), new Point(5, 3));
-        Square square = new Square(new Point(4,4));
+        Shape triangl = new Triangl(new Point(0, 0), new Point(0, 4), new Point(3, 0));
+        System.out.println(triangl);
+        System.out.println(triangl.getArea());
+        System.out.println(triangl.getPerimetr());
+
         Board board = new Board();
+        board.inShape(triangl, 1);
 
-        board.inShape(carcle, 1);
-        board.inShape(carcle, 2);
-        board.inShape(triangl, 3);
-        board.inShape(square, 4);
 
+        Shape circle = new Circle(new Point(0,1), new Point(0,6));
+        System.out.println(circle);
+        System.out.println(circle.getArea());
+        System.out.println(circle.getPerimetr());
+        board.inShape(circle, 2);
+
+
+
+        Shape square = new Square(new Point(0,4), new Point(0,4), new Point(0,4), new Point(0,4));
+        System.out.println(square);
+        System.out.println(square.getPerimetr());
+        System.out.println(square.getArea());
+        board.inShape(square, 3);
+
+        System.out.println();
         board.printInfo();
-        board.printAll();
-        board.inShape(triangl, 3);
-        board.printInfo();
-        board.outShape(3);
-        board.printAll();
+
+
 
 
     }
 }
+

@@ -50,7 +50,7 @@ public class Triangl extends Shape{
 
     @Override
     public double getPerimetr() {
-       double perimetr =  a.getDist(c) + b.getDist(a) + c.getDist(b) ;
+       double perimetr =  Point.getDist(a,b) + Point.getDist(b,c) + Point.getDist(c,a) ;
         return perimetr;
 
     }
@@ -58,6 +58,7 @@ public class Triangl extends Shape{
     @Override
     public double getArea() {
         double polPerimetr = this.getPerimetr()/2;
-        return Math.sqrt(polPerimetr*(polPerimetr-a.getDist(b))*(polPerimetr-b.getDist(c))*(polPerimetr-c.getDist(a)));
+        return Math.sqrt(polPerimetr*(polPerimetr- Point.getDist(a,b))*(polPerimetr-Point.getDist(b,c))*(
+                polPerimetr-Point.getDist(c,a)));
     }
 }

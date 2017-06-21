@@ -7,18 +7,13 @@ public class Circle extends Shape {
     private Point center;
     private Point radius;
 
-    public Circle(Point center) {
-        super();
+    public Circle(Point center, Point radius) {
         this.center = center;
         this.radius = radius;
     }
 
-    public Circle(Point point, Point point1) {
-        super();
-    }
-
     public Point getCenter() {
-        return null;
+        return center;
     }
 
     public void setCenter(Point center) {
@@ -34,12 +29,20 @@ public class Circle extends Shape {
     }
 
     @Override
+    public String toString() {
+        return "Circle{" +
+                "center=" + center +
+                ", radius=" + radius +
+                '}';
+    }
+
+    @Override
     public double getPerimetr() {
-        return 2*Math.PI * center.getDist(radius);
+        return 2*Math.PI * Point.getDist(center,radius);
     }
 
     @Override
     public double getArea() {
-        return Math.PI * center.getDist(radius)*center.getDist(radius);
+        return Math.PI * Point.getDist(center,radius)*Point.getDist(center,radius);
     }
 }

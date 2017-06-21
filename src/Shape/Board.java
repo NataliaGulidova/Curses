@@ -5,17 +5,16 @@ package Shape;
  */
 public class Board {
     Shape[] figure = new Shape[4];
+
     public Board() {
         super();
     }
 
-    public Board(Shape[] figure) {
-        this.figure = figure;
-    }
+
     public void inShape(Shape a, int i) {
         if (this.figure[i - 1] == null) {
             this.figure[i - 1] = a;
-            System.out.println("Sector "+i+" full with "+ a.getClass().getName().split("[.]")[1]);
+            System.out.println("Sector " + i + " full with " + a.getClass().getName().split("[.]")[1]);
         } else {
             System.out.println("Sector is full!");
         }
@@ -25,30 +24,21 @@ public class Board {
         if (this.figure[i - 1] == null) {
             System.out.println("Sector " + i + " is null");
         } else {
-            this.figure[i-1] = null;
+            this.figure[i - 1] = null;
             System.out.println("Sector " + i + " clean!");
         }
     }
 
-    public  void printInfo() {
-        int i = 1;
-        System.out.println();
-        for (Shape a : figure) {
-            if (a == null) {
-                System.out.println("Sector "+ i +" " );
-            } else {
-                System.out.println("Sector "+ i+" " + a.getClass().getName().split("[.]")[1]+" "+ a.getArea());
+        public void printInfo() {
+            double p = 0;
+            for (int i = 0; i < figure.length; i++){
+                if(figure[i]!=null){
+                    p += figure[i].getArea();
+                    System.out.println("Sector № " + (i+1) + " is figure " + figure[i]);
+                }
+                else System.out.println("Part of the board № " + (i+1) + " Empty ");
             }
-            i++;
+            System.out.println();
+            System.out.println("SumArea " + p);
         }
-    }
-
-    public  void printAll() {
-        double totalArea = 0;
-        for (Shape a : figure) {
-            totalArea +=  a.getArea();
-        }
-        System.out.println("Total Area: "+ totalArea);
-    }
 }
-
