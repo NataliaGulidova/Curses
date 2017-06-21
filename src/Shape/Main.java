@@ -20,8 +20,8 @@ public class Main {
         board.inShape(triangl, 3);
         board.printInfo();
         board.outShape(3);
-        board.printInfo();
         board.printAll();
+
 
     }
 }

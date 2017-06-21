@@ -44,11 +44,11 @@ public class Board {
     }
 
     public  void printAll() {
-        double totalSquare = 0;
+        double totalArea = 0;
         for (Shape a : figure) {
-            totalSquare += a == null ? 0 : a.getArea();
+            totalArea +=  a.getArea();
         }
-        System.out.println("Total Square: "+ totalSquare);
+        System.out.println("Total Area: "+ totalArea);
     }
 }
 
