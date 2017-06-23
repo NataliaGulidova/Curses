@@ -4,7 +4,7 @@ package Human;
 /**
  * Created by Admin on 22.06.2017.
  */
-
+import java.util.Arrays;
 public class Group {
     private String faculty;
 
@@ -48,6 +48,20 @@ public class Group {
             System.out.println(e);
         }
 
+    }
+    public void sort() {
+        try {
+            Arrays.sort(group);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        for (Student temp : group) {
+            try {
+                System.out.println(temp.toString());
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public void printGroupInfo() {
         for (Student temp : group)

@@ -32,7 +32,8 @@ public class Main {
         group.addStudent(s10);
         group.addStudent(s11);
 
-group.findStudent("Ivanova");
+        group.findStudent("Ivanova");
+       
 
 
 
