@@ -3,7 +3,7 @@ package Human;
 /**
  * Created by Admin on 22.06.2017.
  */
-
+import java.io.File;
 public class Main {
     public static void main(String[] args) {
         Student s1 = new Student("Woman", "Ivanova", 18, 102, 4.3, 456 );
@@ -18,22 +18,22 @@ public class Main {
         Student s10 = new Student("Woman", "Lopova", 19, 102, 4.3, 465);
         Student s11 = new Student("Woman", "dopova", 19, 102, 4.3, 465);
 
-
         Group group = new Group();
+        group.surnameSort();
        group.addStudent(s1);
         group.addStudent(s2);
         group.addStudent(s3);
         group.addStudent(s4);
         group.addStudent(s5);
-        group.addStudent(s6);
-        group.addStudent(s7);
-        group.addStudent(s8);
-        group.addStudent(s9);
-        group.addStudent(s10);
-        group.addStudent(s11);
 
-        group.findStudent("Ivanova");
-       
+
+       // group.saveGroupInFile("My group.txt");
+        //System.out.println(Group.getGroupFromFile(new File("My new group.txt")));
+
+
+
+
+
 
 
 

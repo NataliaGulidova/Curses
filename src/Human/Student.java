@@ -3,7 +3,8 @@ package Human;
 /**
  * Created by Admin on 22.06.2017.
  */
-public class Student extends Human {
+import java.util.Scanner;
+public class Student extends Human implements Comparable{
     private int numberGroup;
     private double averadgeScore;
     private int recordBookNumber;
@@ -16,6 +17,21 @@ public class Student extends Human {
         this.numberGroup = numberGroup;
         this.averadgeScore = averadgeScore;
         this.recordBookNumber = recordBookNumder;
+    }
+    
+
+    public void setRecordBookNumber(int recordBookNumber) {
+        this.recordBookNumber = recordBookNumber;
+    }
+
+
+    public int compareTo (Object o) {
+        Student b = (Student) o;
+        int comp = (this.getSurname()).compareToIgnoreCase(b.getSurname());
+        if (comp > 0) return 1;
+        else if (comp < 0) return -1;
+        else
+            return 0;
     }
 
     public int getRecordBookNumber() {

@@ -14,6 +14,10 @@ public class Human {
         this.age = age;
     }
 
+    public Human() {
+
+    }
+
     public String getSex() {
         return sex;
     }
