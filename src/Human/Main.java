@@ -25,6 +25,7 @@ public class Main {
         group.addStudent(s3);
         group.addStudent(s4);
         group.addStudent(s5);
+        group.sortByParametr(0, true);
 
 
        // group.saveGroupInFile("My group.txt");

@@ -4,26 +4,31 @@ package Human;
 /**
  * Created by Admin on 22.06.2017.
  */
-import java.util.Comparator;
-import java.util.Scanner;
-import  java.util.Arrays;
-import  java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import  java.io.PrintWriter;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
+import java.util.Arrays;
 
 public class Group implements Commisariat {
     private String faculty;
     private Student student;
 
-    public Group(String faculty) {
-        this.faculty = faculty;
+
+    public Group(Student student) {
+        this.student = student;
     }
 
     public Group() {
 
     }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent( Student student) {
+        this.student = student;
+    }
+
 
     public String getFaculty() {
         return faculty;
@@ -59,31 +64,22 @@ public class Group implements Commisariat {
 
     }
 
-    public void interActiveAddStudent(Student student) {
+    public void addStudentInteractive() throws EnoughtStudent {
+        Student student = null;
         try {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("inpur sex: ");
-            String sex = sc.nextLine();
-            System.out.println("input surname: ");
-            String surname = sc.nextLine();
-            System.out.println("input age: ");
-            int age = sc.nextInt();
-            System.out.println();
-            System.out.println("input numberGroup : ");
-            int numberGroup = sc.nextInt();
-            System.out.println("input averadgeScore: ");
-            double averadgeScore = sc.nextDouble();
-            System.out.println("input ecordBookNumber: ");
-            int recordBookNumber= sc.nextInt();
-         Student st = new Student(sex,surname, age, numberGroup, averadgeScore,recordBookNumber);
-         this.setStudent(st);
-
-            sc.close();
-        } catch (EnoughtStudent e) {
-            System.out.println("wrong input format!");
+            String name = getSurname("Input student name");
+            String lastName = getSurname("Input student lastname");
+            int age = getAge();
+            boolean sex = getSex("Input sex -> man or women");
+            long zach =getRecordBookNumder("Input zach number");
+            String group = getSurname("Input group name");
+            Student st = new Student(name, lastName, age, sex, zach, group);
+            this.addStudent(st);
+        } catch (NullPointerException e) {
+            System.out.println("Canceled");
+            return;
         }
     }
-
 
 
     public String findStudent(String l) {
@@ -102,19 +98,63 @@ public class Group implements Commisariat {
         return null;
     }
 
-    public void surnameSort(){
-    for (int i = this.group.length - 1; i >= 0; i--) {
-        for (int j = 0; j < i; j++) {
-
-            if (compareStudent(group[j], group[j + 1]) > 0) {
-                Student a = this.group[j];
-                this.group[j] = this.group[j + 1];
-                this.group[j + 1] = a;
+    private int getAge() throws NullPointerException {
+        boolean done = false;
+        int age = 0;
+        for (; !done;) {
+            try {
+                age = Integer.valueOf(JOptionPane.showInputDialog("Input student age"));
+                done = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showInternalMessageDialog(null, "Invalid ");
             }
-
         }
+        return age;
     }
-}
+
+    private String getSurname(String message) throws NullPointerException {
+        boolean done = false;
+        String name = "";
+        for (; !done;) {
+            try {
+                name = JOptionPane.showInputDialog(message);
+                done = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showInternalMessageDialog(null, "Invalid format");
+            }
+        }
+        return name;
+    }
+
+    private boolean getSex(String message) throws NullPointerException {
+        boolean done = false;
+        boolean name = false;
+        for (; !done;) {
+            try {
+                name = JOptionPane.showInputDialog(message).equals("man");
+                done = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showInternalMessageDialog(null, "Invalid format");
+            }
+        }
+        return name;
+    }
+
+    private long getRecordBookNumder(String message) throws NullPointerException {
+        boolean done = false;
+        long name = 0;
+        for (; !done;) {
+            try {
+                name = Long.valueOf(JOptionPane.showInputDialog(message));
+                done = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showInternalMessageDialog(null, "Invalid format");
+            }
+        }
+        return name;
+    }
+
+
 private int compareStudent(Student o1, Student o2){
     if (o1 != null && o2 == null) {
         return 1;
@@ -128,17 +168,10 @@ private int compareStudent(Student o1, Student o2){
     return o1.getSurname().compareTo(o2.getSurname());
 
 }
-
-
-    public void averageScoreSort() {
-        Arrays.sort(this.group, 0, group.length, new Comparator<Student>() {
-            @Override
-            public int compare (Student a, Student b){
-                return (int) (a.getAveradgeScore() - b.getAveradgeScore());
-            }
-
-        } );
+    public void sortByParametr(int i, boolean f) {
+        Arrays.sort(this.group, new StudentCompare(i,f));
     }
+
 
     @Override
     public String toString() {
@@ -156,14 +189,22 @@ private int compareStudent(Student o1, Student o2){
 
     @Override
     public Student[] getReserve() {
-        Student[] milReserve = new Student[0];
-        int counter = 0;
-        for (int i = 0; i < milReserve.length; i++) {
-            if (group[i].getAge() >= 18 && group[i].getSex().equals("male")) {
-                milReserve[counter++] = group[i];
+        int n = 0;
+        boolean sex = true;
+        for (Student student : group) {
+            if (student != null && sex && student.getAge() >= 18) {
+                n += 1;
             }
         }
-        return Arrays.copyOf(milReserve, counter);
+        Student[] studentArray = new Student[n];
+        int i = 0;
+
+        for (Student student : studentArray) {
+            if (student != null && sex && student.getAge() >= 18) {
+                studentArray[i++] = student;
+            }
+        }
+        return studentArray;
     }
     public void saveGroupInFile(String fileName){
         File f = new File(fileName);
@@ -194,9 +235,6 @@ private int compareStudent(Student o1, Student o2){
         return group;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 }
 
 

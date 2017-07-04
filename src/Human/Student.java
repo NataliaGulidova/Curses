@@ -8,17 +8,24 @@ public class Student extends Human implements Comparable{
     private int numberGroup;
     private double averadgeScore;
     private int recordBookNumber;
-    public Student(String sex, String surname, int age) {
-        super(sex, surname, age);
+
+    public Student(String sex, String surname, int age, boolean isSex) {
+        super(sex, surname, age, isSex);
+    }
+
+    public Student(String sex, String surname, int age, boolean isSex, int numberGroup, double averadgeScore, int recordBookNumber) {
+        super(sex, surname, age, isSex);
+        this.numberGroup = numberGroup;
+        this.averadgeScore = averadgeScore;
+        this.recordBookNumber = recordBookNumber;
+    }
+
+    public Student(String name, String lastName, int age, boolean sex, long zach, String group) {
     }
 
     public Student(String sex, String surname, int age, int numberGroup, double averadgeScore, int recordBookNumder) {
-        super(sex, surname, age);
-        this.numberGroup = numberGroup;
-        this.averadgeScore = averadgeScore;
-        this.recordBookNumber = recordBookNumder;
     }
-    
+
 
     public void setRecordBookNumber(int recordBookNumber) {
         this.recordBookNumber = recordBookNumber;
