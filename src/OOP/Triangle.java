@@ -6,7 +6,7 @@ package OOP;
     //Описать класс «Triangle». В качестве свойств возьмите длины сторон
 // треугольника. Реализуйте метод, который будет возвращать площадь этого
 // треугольника. Создайте несколько объектов этого класса и протестируйте их.
-    public class Triangle {
+    public class Triangle{
         private double sideA;
         private double sideB;
         private double sideC;
